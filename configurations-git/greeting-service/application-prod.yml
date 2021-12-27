@@ -12,4 +12,4 @@ management:
 
 greeting-service:
   greeting: "Olá"
-  defaul-value: "Mundo"
+  defaul-value: "Otario"
