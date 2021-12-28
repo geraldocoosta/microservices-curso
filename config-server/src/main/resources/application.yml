@@ -7,6 +7,7 @@ spring:
 #  profiles:
 #    active:
 #    - native
+ # configuracoes para buscar arquivos de configuracoes no git e disponibilizar na porta 8888 para outras aplicacoes
   cloud:
     config:
       server:

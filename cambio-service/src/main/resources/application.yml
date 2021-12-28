@@ -19,6 +19,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  #usando flyway para versionar banco de dados
   flyway:
     url: jdbc:mysql://localhost:3306
     schemas:

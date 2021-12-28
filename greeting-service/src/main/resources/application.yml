@@ -5,6 +5,7 @@ server:
 spring:
   application:
     name: greeting-service
+  #buscando configuracoes da aplicacao config-server
   config:
     import: optional:configserver:http://localhost:8888/
   cloud:
