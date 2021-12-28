@@ -8,9 +8,11 @@ eureka:
 spring:
   application:
     name: api-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+#O que era feito nas linhas abaixo agora vai ser 
+#feito programaticamente
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
