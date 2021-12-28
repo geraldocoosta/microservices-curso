@@ -36,8 +36,8 @@ public class BookServiceImplementation implements BookService {
 	@Override
 	public Book findBook(Long id, String currency) {
 		var book = repository.findById(id).orElseThrow(() -> new BookNotFoundException("Book not found"));
-		book.setEnvironment(environment.getProperty("local.server.port"));
 		Cambio cambio = cambioProxy.getCambio(book.getPrice(), "USD", currency);
+		book.setEnvironment("Book port: " + environment.getProperty("local.server.port") + "; Cambio Port " + cambio.getEnvironment());
 		book.setPrice(cambio.getConvertedValue());
 		return book;
 	}
