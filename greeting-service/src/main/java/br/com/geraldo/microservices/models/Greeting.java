@@ -1,4 +1,4 @@
-package br.com.geraldomicroservices.models;
+package br.com.geraldo.microservices.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

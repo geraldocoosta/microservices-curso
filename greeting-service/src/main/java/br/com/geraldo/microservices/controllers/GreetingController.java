@@ -1,4 +1,4 @@
-package br.com.geraldomicroservices.controllers;
+package br.com.geraldo.microservices.controllers;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.geraldomicroservices.configurations.GreetingConfiguration;
-import br.com.geraldomicroservices.models.Greeting;
+import br.com.geraldo.microservices.configurations.GreetingConfiguration;
+import br.com.geraldo.microservices.models.Greeting;
 import lombok.RequiredArgsConstructor;
 
 @RestController

@@ -1,4 +1,4 @@
-package br.com.cambioservice.services.implmts;
+package br.com.geraldo.cambioservice.services.implmts;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -6,10 +6,10 @@ import java.math.RoundingMode;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
-import br.com.cambioservice.exception.CurrencyUnsupportedException;
-import br.com.cambioservice.models.Cambio;
-import br.com.cambioservice.repositories.CambioRepository;
-import br.com.cambioservice.services.CambioService;
+import br.com.geraldo.cambioservice.exception.CurrencyUnsupportedException;
+import br.com.geraldo.cambioservice.models.Cambio;
+import br.com.geraldo.cambioservice.repositories.CambioRepository;
+import br.com.geraldo.cambioservice.services.CambioService;
 import lombok.RequiredArgsConstructor;
 
 @Service

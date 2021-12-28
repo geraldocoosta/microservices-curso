@@ -1,4 +1,4 @@
-package br.com.cambioservice.handlers;
+package br.com.geraldo.cambioservice.handlers;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.cambioservice.exception.model.ExceptionDetails;
+import br.com.geraldo.cambioservice.exception.model.ExceptionDetails;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {

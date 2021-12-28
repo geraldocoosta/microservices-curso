@@ -1,4 +1,4 @@
-package br.com.cambioservice.controllers;
+package br.com.geraldo.cambioservice.controllers;
 
 import java.math.BigDecimal;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cambioservice.models.Cambio;
-import br.com.cambioservice.services.CambioService;
+import br.com.geraldo.cambioservice.models.Cambio;
+import br.com.geraldo.cambioservice.services.CambioService;
 import lombok.RequiredArgsConstructor;
 
 @RestController

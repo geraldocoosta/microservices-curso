@@ -1,4 +1,4 @@
-package br.com.cambioservice.models;
+package br.com.geraldo.cambioservice.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package br.com.cambioservice.exception;
+package br.com.geraldo.cambioservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

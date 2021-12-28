@@ -1,4 +1,4 @@
-package br.com.geraldomicroservices.configurations;
+package br.com.geraldo.microservices.configurations;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

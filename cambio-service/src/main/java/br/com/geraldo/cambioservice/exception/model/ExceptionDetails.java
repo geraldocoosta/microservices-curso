@@ -1,4 +1,4 @@
-package br.com.cambioservice.exception.model;
+package br.com.geraldo.cambioservice.exception.model;
 
 import java.time.LocalDateTime;
 

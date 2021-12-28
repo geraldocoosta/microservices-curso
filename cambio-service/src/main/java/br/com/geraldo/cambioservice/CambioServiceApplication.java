@@ -1,13 +1,13 @@
-package br.com.geraldomicroservices;
+package br.com.geraldo.cambioservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class CambioServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CambioServiceApplication.class, args);
 	}
 
 }

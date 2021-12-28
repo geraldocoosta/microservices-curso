@@ -1,4 +1,4 @@
-package br.com.configserver;
+package br.com.geraldo.configserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
