@@ -3,7 +3,10 @@ server:
   port: 8100
   error:
     include-stacktrace: on-param
-  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 spring:
   application:
     name: book-service
