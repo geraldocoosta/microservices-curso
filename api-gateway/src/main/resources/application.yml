@@ -8,6 +8,19 @@ eureka:
 spring:
   application:
     name: api-gateway
+# router de maneira via application.yml
+  cloud:
+    gateway:
+      routes:
+      - id: bookService
+        uri: lb://book-service
+        predicates:
+        - Path=/book-service/**
+      - id: cambioService
+        uri: lb://cambio-service
+        predicates:
+        - Path=/cambio-service/**
+  
 #O que era feito nas linhas abaixo agora vai ser 
 #feito programaticamente
 #  cloud:
