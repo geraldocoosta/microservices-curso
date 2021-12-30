@@ -11,15 +11,24 @@ spring:
 # router de maneira via application.yml
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
-      - id: bookService
-        uri: lb://book-service
-        predicates:
-        - Path=/book-service/**
-      - id: cambioService
+      - id: cambio-service
         uri: lb://cambio-service
         predicates:
         - Path=/cambio-service/**
+      - id: book-service
+        uri: lb://book-service
+        predicates:
+        - Path=/book-service/**
+      - id: openApi
+        uri: lb://api-gateway
+        predicates:
+        - Path=/v3/api-docs/**
+        filters:
+        - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
   
 #O que era feito nas linhas abaixo agora vai ser 
 #feito programaticamente

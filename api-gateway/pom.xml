@@ -15,6 +15,7 @@
 	<name>api-gateway</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<openapi-core.version>1.6.3</openapi-core.version>
 		<log4j2.version>2.17.0</log4j2.version>
 		<java.version>17</java.version>
 		<spring-cloud.version>2020.0.5</spring-cloud.version>
@@ -41,7 +42,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-webflux-ui</artifactId>
+			<version>${openapi-core.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
