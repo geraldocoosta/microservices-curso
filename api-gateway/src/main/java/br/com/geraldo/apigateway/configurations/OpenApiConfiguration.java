@@ -25,7 +25,7 @@ public class OpenApiConfiguration {
 							String name = routeDefinition.getId();
 							config.addGroup(name);
 							GroupedOpenApi.builder()
-								.pathsToMatch("/" + name + "/**")
+								.pathsToMatch(String.format("/%s/**", name))
 								.group(name).build();
 						}
 			);
