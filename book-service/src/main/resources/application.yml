@@ -15,6 +15,10 @@ resilience4j:
       #alterando vezes que faço a requisição, esquema de profile
       foo-bar:
         max-attempts: 5
+        # Quanto tempo vai esperar para tentar fazer de novo a request
+        wait-duration: 1s
+        # o tempo vai ser incrementado a cada retry, como fibonacci
+        enable-exponential-backoff: true
       default:
         max-attempts: 2
 spring:
