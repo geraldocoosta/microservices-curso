@@ -1,4 +1,4 @@
-package br.com.geraldo.configurations;
+package br.com.geraldo.cambioservice.configurations;
 
 import org.springframework.context.annotation.Bean;
 
@@ -8,7 +8,7 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.License;
 
-@OpenAPIDefinition(info = @Info(title = "Book Service Api", version = "v1", description = "Docs of Book Service API"))
+@OpenAPIDefinition(info = @Info(title = "Cambio Service Api", version = "v1", description = "Docs of Cambio Service API"))
 public class OpenApiConfiguration {
 
 	@Bean
@@ -16,7 +16,7 @@ public class OpenApiConfiguration {
 		return new OpenAPI()
 				.components(new Components())
 				.info(new io.swagger.v3.oas.models.info.Info()
-						.title("Book Service Api")
+						.title("Cambio Service Api")
 						.version("v1")
 						.license(
 								new License()
