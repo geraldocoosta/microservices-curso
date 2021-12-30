@@ -9,8 +9,8 @@ import br.com.geraldo.bookservice.models.Book;
 import br.com.geraldo.bookservice.services.BookService;
 import lombok.RequiredArgsConstructor;
 
-@RequestMapping("/book-service")
 @RestController
+@RequestMapping("/book-service")
 @RequiredArgsConstructor
 public class BookController {
 	
