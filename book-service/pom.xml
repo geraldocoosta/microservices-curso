@@ -15,6 +15,7 @@
 	<name>book-service</name>
 	<properties>
 		<java.version>17</java.version>
+		<log4j2.version>2.17.0</log4j2.version>
 		<spring-cloud.version>2020.0.5</spring-cloud.version>
 		<openapi-core.version>1.6.3</openapi-core.version>
 	</properties>
