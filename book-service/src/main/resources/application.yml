@@ -10,6 +10,23 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 resilience4j:
+  timelimiter:
+    instances:
+      default:
+        cancel-running-future: false
+        timeout-duration: 2s
+  bulkhead:
+    instances:
+      default:
+        # Maximo de execuções concorrentes
+        max-concurrent-calls: 10
+  ratelimiter:
+    instances:
+      default:
+        #Em 10 segundos
+        limit-refresh-period: 10s
+        #Só posso fazer duas requisições
+        limit-for-period: 2
   retry:
     instances:
       #alterando vezes que faço a requisição, esquema de profile
