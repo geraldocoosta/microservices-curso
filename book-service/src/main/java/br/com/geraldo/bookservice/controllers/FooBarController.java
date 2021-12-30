@@ -53,13 +53,6 @@ public class FooBarController {
 	public String fooBar() {
 		log.info("Request to foo-bar is received!");
 		
-		// Comentado, parte utilizada para testar TimeLimit
-		try {
-			Thread.sleep(3000);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-		
 		// Comentado, parte utilizada para testar Retry e CircuitBreaker
 		/*
 		 * var response = new RestTemplate().getForEntity("http://localhost:8080/foo-bar", String.class);
