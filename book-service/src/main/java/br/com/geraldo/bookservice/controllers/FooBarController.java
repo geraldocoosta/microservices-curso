@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.log4j.Log4j2;
 
 
@@ -14,6 +16,7 @@ import lombok.extern.log4j.Log4j2;
  * Classe para testar fault-tolerance
  * mais infos: https://resilience4j.readme.io/docs/getting-started-3
  */
+@Tag(name = "Foo-bar endpoint")
 @RestController
 @RequestMapping("/book-service")
 @Log4j2
@@ -49,6 +52,7 @@ public class FooBarController {
 	// define um tempo para timeout, configuravel pelo application.yml
 	// Só funciona se o seu método retornar um Future ou seja reativo (Flux or Mono)
 	
+	@Operation(summary = "End-point for tests in fault-tolerance")
 	@GetMapping("/foo-bar")
 	public String fooBar() {
 		log.info("Request to foo-bar is received!");
