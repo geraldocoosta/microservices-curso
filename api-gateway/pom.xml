@@ -13,7 +13,6 @@
 	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-gateway</name>
-	<description>Demo project for Spring Boot</description>
 	<properties>
 		<openapi-core.version>1.6.3</openapi-core.version>
 		<log4j2.version>2.17.0</log4j2.version>
