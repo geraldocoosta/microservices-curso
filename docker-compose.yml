@@ -7,10 +7,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
-    - "3306:3306"
+      - "3306:3306"
     volumes:
-    - geraldo_data:/var/lib/mysql
+      - geraldo_data:/var/lib/mysql
     mem_limit: 512m
 
 volumes:
-  geraldo_data:
+  geraldo_data: 
