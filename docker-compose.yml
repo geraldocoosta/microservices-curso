@@ -1,4 +1,4 @@
-version: '2.4'
+version: '3.3'
 
 services:
   db:
@@ -10,7 +10,10 @@ services:
       - "3306:3306"
     volumes:
       - geraldo_data:/var/lib/mysql
-    mem_limit: 512m
-
+  zipkin:
+    image: openzipkin/zipkin:2.23
+    container_name: zipkin
+    ports:
+      - "9411:9411"
 volumes:
   geraldo_data: 
