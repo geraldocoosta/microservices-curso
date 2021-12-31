@@ -1,0 +1,10 @@
+zipkin
+    distributed tracing-server, ferramenta para debugar e verificar como as requisições estão
+    sendo processadas pelos nossos microserviços
+
+sleuth
+    identificar e rastreiar o fluxo de uma request atraves de todos microserviços
+    atribui um id unico as requests, e a medidade que a request flui atraves dos microserviços
+    o id é mantido e enviado ao tracing-server
+
+
