@@ -32,6 +32,10 @@ spring:
     - cambio_service
     user: root
     password: root
+  sleuth:
+    # quantos % das requisições serão rastreadas
+    sampler:
+      probability: 1.0
 springdoc:
   show-actuator: true
   api-docs:

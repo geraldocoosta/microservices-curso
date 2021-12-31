@@ -8,6 +8,10 @@ eureka:
 spring:
   application:
     name: api-gateway
+  sleuth:
+    # quantos % das requisições serão rastreadas
+    sampler:
+      probability: 1.0
 # router de maneira via application.yml
   cloud:
     gateway:
@@ -29,7 +33,6 @@ spring:
         - Path=/v3/api-docs/**
         filters:
         - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
-  
 #O que era feito nas linhas abaixo agora vai ser 
 #feito programaticamente
 #  cloud:
