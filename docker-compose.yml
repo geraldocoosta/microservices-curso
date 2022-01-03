@@ -74,7 +74,6 @@ services:
       dockerfile: ./cambio-service/Dockerfile
     depends_on:
       - naming-server
-      - zipkin
       - cambio-db
     ports:
       - 8000:8000
@@ -112,7 +111,6 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
     depends_on:
       - naming-server
-      - zipkin
       - cambio-service
       - book-db
     networks:
