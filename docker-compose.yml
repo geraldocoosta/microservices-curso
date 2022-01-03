@@ -15,5 +15,10 @@ services:
     container_name: zipkin
     ports:
       - "9411:9411"
+  naming-server:
+    image: geraldocoosta/naming-server:0.0.1-SNAPSHOT
+    container_name: naming-server
+    ports:
+      - "8761:8761"
 volumes:
   geraldo_data: 
