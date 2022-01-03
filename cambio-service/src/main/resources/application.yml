@@ -1,12 +1,13 @@
 
 server:
-  port: 0
+  port: 8000
   error:
     include-stacktrace: on-param
 ## Registrando eureka server
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+# Retirando porta automatica aleatoria
+#  instance:
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
@@ -15,7 +16,7 @@ spring:
     name: cambio-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3308/cambio_service?useTimezone=true&serverTimezone=UTC
     username: root
     password: root
   jpa:
@@ -24,12 +25,10 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        dialect: org.hibernate.dialect.MySQL57Dialect
   #usando flyway para versionar banco de dados
   flyway:
-    url: jdbc:mysql://localhost:3306
-    schemas:
-    - cambio_service
+    url: jdbc:mysql://localhost:3308/cambio_service?useTimezone=true&serverTimezone=UTC
     user: root
     password: root
   sleuth:
