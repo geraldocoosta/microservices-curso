@@ -26,6 +26,19 @@ services:
       - "8761:8761"
     networks:
       - microservices-network
+  api-gateway:
+    image: geraldocoosta/api-gateway:0.0.1-SNAPSHOT
+    container_name: api-gateway
+    ports:
+      - 8765:8765
+    depends_on:
+      - naming-server
+      - zipkin
+    environment:
+      SPRING.ZIPKIN.BASEURL: http://zipkin:9411
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+    networks:
+      - microservices-network
 networks:
   microservices-network:
     driver: bridge
