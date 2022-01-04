@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.4'
 
 services:
   cambio-db:
@@ -20,6 +20,7 @@ services:
       - geraldo_data_cambio:/var/lib/mysql
     networks:
       - microservices-network
+
   book-db:
     image: mysql
     container_name: mysql_book
@@ -39,13 +40,30 @@ services:
       - geraldo_data_book:/var/lib/mysql
     networks:
       - microservices-network
+
   zipkin:
     image: openzipkin/zipkin:2.23
     container_name: zipkin
     ports:
       - "9411:9411"
+    depends_on:
+      - rabbit-mq
+    restart: 
+      always
+    environment:
+      RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
     networks:
       - microservices-network
+
+  rabbit-mq:
+    container_name: rabbit-mq
+    image: rabbitmq:3.8-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - microservices-network
+
   naming-server:
     image: geraldocoosta/naming-server:0.0.1-SNAPSHOT
     container_name: naming-server
@@ -53,6 +71,7 @@ services:
       - "8761:8761"
     networks:
       - microservices-network
+
   api-gateway:
     image: geraldocoosta/api-gateway:0.0.1-SNAPSHOT
     container_name: api-gateway
@@ -61,11 +80,16 @@ services:
     depends_on:
       - naming-server
       - zipkin
+      - rabbit-mq
     environment:
-      SPRING.ZIPKIN.BASEURL: http://zipkin:9411
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      SPRING.ZIPKIN.BASEURL: http://zipkin:9411
+      RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
     networks:
       - microservices-network
+
   cambio-service: 
     image: geraldocoosta/cambio-service:0.0.1-SNAPSHOT
     container_name: cambio-service
@@ -75,6 +99,7 @@ services:
     depends_on:
       - naming-server
       - cambio-db
+      - rabbit-mq
     ports:
       - 8000:8000
     environment:
@@ -88,8 +113,12 @@ services:
       SPRING.FLYWAY.PASSWORD: root      
       SPRING.ZIPKIN.BASEURL: http://zipkin:9411
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
     networks:
       - microservices-network
+
   book-service:
     image: geraldocoosta/book-service:0.0.1-SNAPSHOT
     container_name: book-service
@@ -109,10 +138,14 @@ services:
       SPRING.FLYWAY.PASSWORD: root
       SPRING.ZIPKIN.BASEURL: http://zipkin:9411
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
     depends_on:
       - naming-server
       - cambio-service
       - book-db
+      - rabbit-mq
     networks:
       - microservices-network
 networks:
