@@ -36,11 +36,17 @@ jobs:
       
       - name: Build Cambio Microservice Jar 
         working-directory: ./cambio-service
-        run: mvn clean package -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=geraldocoosta_microservices-curso
 
       - name: Build Book Microservice Jar 
         working-directory: ./book-service
-        run: mvn clean package -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=geraldocoosta_microservices-curso
 
       - name: Docker Compose Build 
         working-directory: .
